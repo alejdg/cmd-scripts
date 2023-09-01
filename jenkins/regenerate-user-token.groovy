@@ -1,0 +1,5 @@
+user = hudson.model.User.get('username')
+prop = user.getProperty(jenkins.security.ApiTokenProperty.class)
+result = prop.tokenStore.generateNewToken("token-created-by-script")
+user.save()
+println(result.plainValue)
